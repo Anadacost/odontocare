@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #343a40;
+    background-color: #ffffff;
+}
+
+/* MENU */
+
+.navbar {
+    background-color: #123b52;
+    padding: 18px 0;
+}
+
+.navbar-brand {
+    font-size: 26px;
+    color: #ffffff;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #71d5d0 !important;
+}
+
+.btn-login {
+    background-color: #36b9b0;
+    color: #ffffff;
+    padding: 9px 25px;
+    border-radius: 25px;
+}
+
+/* BANNER */
+
+.banner {
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg,
+        rgba(12, 44, 62, 0.94),
+        rgba(12, 44, 62, 0.55)),
+        url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600")
+        center/cover no-repeat;
+    color: white;
+}
+
+.banner-conteudo {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.banner h1 {
+    font-size: 48px;
+    font-weight: bold;
+    max-width: 650px;
+    margin: 20px 0;
+}
+
+.banner p {
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 620px;
+}
+
+.subtitulo {
+    color: #28aaa5;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.btn-principal {
+    background-color: #24aaa3;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 27px;
+    transition: 0.3s;
+}
+
+.btn-principal:hover {
+    background-color: #167e7a;
+    color: white;
+}
+
+/* APRESENTAÇÃO */
+
+.apresentacao {
+    padding: 70px 0;
+}
+
+.apresentacao h2,
+.servicos h2,
+.atendimento h2,
+.diferenciais h2 {
+    color: #123b52;
+    font-size: 34px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.descricao {
+    max-width: 800px;
+    margin: 20px auto 0;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* SERVIÇOS */
+
+.servicos {
+    background-color: #f3f8fa;
+}
+
+.servicos .container > .text-center > p {
+    color: #777;
+}
+
+.card-servico {
+    background: #ffffff;
+    padding: 32px 25px;
+    border-radius: 12px;
+    height: 100%;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.card-servico:hover {
+    transform: translateY(-7px);
+    border-bottom-color: #24aaa3;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+.icone {
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.card-servico h3 {
+    color: #123b52;
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card-servico p {
+    color: #777;
+    line-height: 1.7;
+}
+
+/* ATENDIMENTO */
+
+.atendimento {
+    padding: 80px 0;
+}
+
+.atendimento p {
+    color: #666;
+    line-height: 1.9;
+}
+
+.atendimento-imagem img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* DIFERENCIAIS */
+
+.diferenciais {
+    background-color: #f3f8fa;
+}
+
+.diferencial {
+    padding: 25px;
+}
+
+.diferencial h3 {
+    font-size: 38px;
+}
+
+.diferencial h4 {
+    color: #123b52;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.diferencial p {
+    color: #777;
+}
+
+/* CHAMADA */
+
+.chamada {
+    background: #123b52;
+    color: white;
+}
+
+.chamada h2 {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.chamada p {
+    margin: 20px 0;
+    font-size: 17px;
+}
+
+.chamada .btn {
+    border-radius: 25px;
+    padding: 12px 30px;
+    color: #123b52;
+    font-weight: bold;
+}
+
+/* RODAPÉ */
+
+.rodape {
+    background-color: #0b293a;
+    color: #ffffff;
+    padding: 50px 0 20px;
+}
+
+.rodape h3 {
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.rodape h5 {
+    margin-bottom: 18px;
+}
+
+.rodape p {
+    color: #d0dce2;
+    line-height: 1.8;
+}
+
+.rodape a {
+    display: block;
+    text-decoration: none;
+    color: #d0dce2;
+    margin-bottom: 10px;
+}
+
+.rodape a:hover {
+    color: #36b9b0;
+}
+
+.rodape hr {
+    border-color: #ffffff;
+    margin-top: 30px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .banner {
+        min-height: 480px;
+    }
+
+    .banner h1 {
+        font-size: 34px;
+    }
+
+    .banner p {
+        font-size: 15px;
+    }
+
+    .banner .btn {
+        margin: 5px 0;
+    }
+
+    .apresentacao h2,
+    .servicos h2,
+    .atendimento h2,
+    .diferenciais h2,
+    .chamada h2 {
+        font-size: 27px;
+    }
+
+    .atendimento-imagem img {
+        height: 280px;
+    }
+}

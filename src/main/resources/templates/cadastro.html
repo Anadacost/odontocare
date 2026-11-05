@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Cliente | OdontoCare</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" th:href="@{/}">
+            <i class="bi bi-heart-pulse-fill me-2"></i>
+            OdontoCare
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuPrincipal">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Início</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/servicos}">Serviços</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/sobre}">Sobre nós</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Entrar</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main class="cadastro-pagina">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8 col-xl-7">
+
+                <div class="cadastro-card">
+
+                    <!-- CABEÇALHO -->
+                    <div class="cadastro-cabecalho text-center">
+
+                        <div class="cadastro-icone">
+                            <i class="bi bi-person-plus-fill"></i>
+                        </div>
+
+                        <h1>Crie sua conta</h1>
+
+                        <p>
+                            Cadastre-se na OdontoCare e tenha mais facilidade
+                            para cuidar do seu sorriso.
+                        </p>
+
+                    </div>
+
+
+                    <!-- MENSAGENS -->
+                    <div class="alert alert-success"
+                         th:if="${mensagem}"
+                         th:text="${mensagem}">
+                    </div>
+
+                    <div class="alert alert-danger"
+                         th:if="${erro}"
+                         th:text="${erro}">
+                    </div>
+
+
+                    <!-- FORMULÁRIO -->
+                    <form th:action="@{/cadastro}"
+                          th:object="${clienteCadastro}"
+                          method="post"
+                          id="formCadastro">
+
+                        <h5 class="cadastro-secao-titulo">
+                            <i class="bi bi-person me-2"></i>
+                            Dados pessoais
+                        </h5>
+
+                        <!-- NOME -->
+                        <div class="mb-3">
+
+                            <label for="nome" class="form-label">
+                                Nome completo
+                            </label>
+
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="nome"
+                                    th:field="*{nome}"
+                                    placeholder="Digite seu nome completo"
+                                    autocomplete="name"
+                                    maxlength="120"
+                                    required>
+
+                            <div class="text-danger small"
+                                 th:if="${#fields.hasErrors('nome')}"
+                                 th:errors="*{nome}">
+                            </div>
+
+                        </div>
+
+
+                        <!-- CPF E TELEFONE -->
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label for="cpf" class="form-label">
+                                    CPF
+                                </label>
+
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        id="cpf"
+                                        th:field="*{cpf}"
+                                        placeholder="000.000.000-00"
+                                        maxlength="14"
+                                        inputmode="numeric"
+                                        autocomplete="off"
+                                        required>
+
+                                <div class="text-danger small"
+                                     th:if="${#fields.hasErrors('cpf')}"
+                                     th:errors="*{cpf}">
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label for="telefone" class="form-label">
+                                    Telefone
+                                </label>
+
+                                <input
+                                        type="tel"
+                                        class="form-control"
+                                        id="telefone"
+                                        th:field="*{telefone}"
+                                        placeholder="(00) 00000-0000"
+                                        maxlength="15"
+                                        autocomplete="tel"
+                                        required>
+
+                                <div class="text-danger small"
+                                     th:if="${#fields.hasErrors('telefone')}"
+                                     th:errors="*{telefone}">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <h5 class="cadastro-secao-titulo mt-4">
+                            <i class="bi bi-shield-lock me-2"></i>
+                            Dados de acesso
+                        </h5>
+
+
+                        <!-- EMAIL -->
+                        <div class="mb-3">
+
+                            <label for="email" class="form-label">
+                                E-mail
+                            </label>
+
+                            <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    th:field="*{email}"
+                                    placeholder="seuemail@exemplo.com"
+                                    autocomplete="email"
+                                    maxlength="150"
+                                    required>
+
+                            <div class="text-danger small"
+                                 th:if="${#fields.hasErrors('email')}"
+                                 th:errors="*{email}">
+                            </div>
+
+                        </div>
+
+
+                        <!-- SENHA -->
+                        <div class="mb-3">
+
+                            <label for="senha" class="form-label">
+                                Senha
+                            </label>
+
+                            <div class="input-group">
+
+                                <input
+                                        type="password"
+                                        class="form-control"
+                                        id="senha"
+                                        th:field="*{senha}"
+                                        placeholder="Crie uma senha"
+                                        autocomplete="new-password"
+                                        minlength="8"
+                                        required>
+
+                                <button class="btn btn-outline-secondary"
+                                        type="button"
+                                        id="mostrarSenha"
+                                        aria-label="Mostrar senha">
+
+                                    <i class="bi bi-eye" id="iconeSenha"></i>
+
+                                </button>
+
+                            </div>
+
+                            <small class="text-muted">
+                                A senha deve ter pelo menos 8 caracteres.
+                            </small>
+
+                            <div class="text-danger small"
+                                 th:if="${#fields.hasErrors('senha')}"
+                                 th:errors="*{senha}">
+                            </div>
+
+                        </div>
+
+
+                        <!-- CONFIRMAR SENHA -->
+                        <div class="mb-4">
+
+                            <label for="confirmarSenha" class="form-label">
+                                Confirmar senha
+                            </label>
+
+                            <input
+                                    type="password"
+                                    class="form-control"
+                                    id="confirmarSenha"
+                                    name="confirmarSenha"
+                                    placeholder="Digite sua senha novamente"
+                                    autocomplete="new-password"
+                                    minlength="8"
+                                    required>
+
+                            <div class="text-danger small"
+                                 id="erroSenha">
+                            </div>
+
+                        </div>
+
+
+                        <!-- AVISO -->
+                        <div class="cadastro-aviso">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            Seus dados serão utilizados para gerenciar sua conta
+                            e seus agendamentos na OdontoCare.
+                        </div>
+
+
+                        <!-- BOTÃO -->
+                        <button type="submit"
+                                class="btn btn-cadastrar w-100"
+                                id="botaoCadastrar">
+
+                            Criar minha conta
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- LINK LOGIN -->
+                    <div class="cadastro-login text-center">
+
+                        <p>
+                            Já possui uma conta?
+                            <a th:href="@{/login}">
+                                Faça login
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- RODAPÉ -->
+<footer class="rodape">
+
+    <div class="container text-center">
+
+        <h5>
+            <i class="bi bi-heart-pulse-fill me-2"></i>
+            OdontoCare
+        </h5>
+
+        <p>
+            Cuidando do seu sorriso com carinho e dedicação.
+        </p>
+
+        <p class="mb-0">
+            &copy; 2026 OdontoCare. Todos os direitos reservados.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- SCRIPTS DA PÁGINA -->
+<script>
+
+    // Mostrar ou ocultar senha
+    const botaoSenha = document.getElementById("mostrarSenha");
+    const campoSenha = document.getElementById("senha");
+    const iconeSenha = document.getElementById("iconeSenha");
+
+    botaoSenha.addEventListener("click", function () {
+
+        if (campoSenha.type === "password") {
+
+            campoSenha.type = "text";
+            iconeSenha.classList.replace("bi-eye", "bi-eye-slash");
+
+        } else {
+
+            campoSenha.type = "password";
+            iconeSenha.classList.replace("bi-eye-slash", "bi-eye");
+
+        }
+
+    });
+
+
+    // Máscara de CPF
+    const campoCpf = document.getElementById("cpf");
+
+    campoCpf.addEventListener("input", function () {
+
+        let valor = campoCpf.value.replace(/\D/g, "");
+
+        valor = valor.substring(0, 11);
+
+        valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+        valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+        valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+        campoCpf.value = valor;
+
+    });
+
+
+    // Máscara de telefone
+    const campoTelefone = document.getElementById("telefone");
+
+    campoTelefone.addEventListener("input", function () {
+
+        let valor = campoTelefone.value.replace(/\D/g, "");
+
+        valor = valor.substring(0, 11);
+
+        if (valor.length <= 10) {
+
+            valor = valor.replace(/^(\d{2})(\d)/, "($1) $2");
+            valor = valor.replace(/(\d{4})(\d)/, "$1-$2");
+
+        } else {
+
+            valor = valor.replace(/^(\d{2})(\d)/, "($1) $2");
+            valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+
+        }
+
+        campoTelefone.value = valor;
+
+    });
+
+
+    // Verificação de confirmação de senha
+    const formulario = document.getElementById("formCadastro");
+    const confirmarSenha = document.getElementById("confirmarSenha");
+    const erroSenha = document.getElementById("erroSenha");
+
+    formulario.addEventListener("submit", function (evento) {
+
+        if (campoSenha.value !== confirmarSenha.value) {
+
+            evento.preventDefault();
+
+            erroSenha.textContent = "As senhas não são iguais.";
+
+            confirmarSenha.classList.add("is-invalid");
+
+        } else {
+
+            erroSenha.textContent = "";
+
+            confirmarSenha.classList.remove("is-invalid");
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

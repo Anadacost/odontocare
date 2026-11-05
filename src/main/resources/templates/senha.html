@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar senha | OdontoCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="card shadow border-0 rounded-4 p-4" style="max-width: 450px; width: 100%;">
+
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Recuperar senha</h2>
+            <p class="text-muted">
+                Informe seu e-mail cadastrado para solicitar a recuperação da sua senha.
+            </p>
+        </div>
+
+        <div th:if="${mensagem}" class="alert alert-success"
+             th:text="${mensagem}"></div>
+
+        <div th:if="${erro}" class="alert alert-danger"
+             th:text="${erro}"></div>
+
+        <form th:action="@{/recuperar-senha}" method="post">
+
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email"
+                       class="form-control"
+                       id="email"
+                       name="email"
+                       placeholder="Digite seu e-mail"
+                       required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                Solicitar recuperação
+            </button>
+
+        </form>
+
+        <div class="text-center mt-3">
+            <a th:href="@{/login}" class="text-decoration-none">
+                Voltar para o login
+            </a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

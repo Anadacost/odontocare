@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | OdontoCare</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" th:href="@{/}">
+            <i class="bi bi-heart-pulse-fill me-2"></i>
+            OdontoCare
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuPrincipal">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Início</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/servicos}">Serviços</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/sobre}">Sobre nós</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/login}">Entrar</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- ÁREA DE LOGIN -->
+<main class="login-pagina">
+
+    <div class="container">
+
+        <div class="row justify-content-center align-items-center">
+
+            <!-- IMAGEM -->
+            <div class="col-lg-6 d-none d-lg-block">
+
+                <div class="login-apresentacao">
+
+                    <span class="login-etiqueta">
+                        <i class="bi bi-heart-pulse-fill me-2"></i>
+                        OdontoCare
+                    </span>
+
+                    <h1>
+                        Seu sorriso merece
+                        <span>o melhor cuidado.</span>
+                    </h1>
+
+                    <p>
+                        Acesse sua conta para acompanhar seus agendamentos,
+                        consultar nossos serviços e cuidar ainda mais da sua saúde bucal.
+                    </p>
+
+                    <img
+                            src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=80"
+                            alt="Atendimento odontológico"
+                            class="img-fluid login-imagem">
+
+                    <div class="login-beneficio">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Atendimento com qualidade e confiança.
+                    </div>
+
+                    <div class="login-beneficio">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Agendamentos de forma simples e prática.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORMULÁRIO -->
+            <div class="col-lg-6 col-md-9 col-sm-11">
+
+                <div class="login-card">
+
+                    <div class="login-icone">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+
+                    <div class="text-center mb-4">
+
+                        <h2>Bem-vindo(a)!</h2>
+
+                        <p>
+                            Entre com seus dados para acessar sua conta.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Mensagens de retorno do Spring Security -->
+                    <div class="alert alert-danger"
+                         th:if="${param.error}">
+                        E-mail ou senha inválidos. Verifique seus dados e tente novamente.
+                    </div>
+
+                    <div class="alert alert-success"
+                         th:if="${param.logout}">
+                        Você saiu da sua conta com sucesso.
+                    </div>
+
+                    <div class="alert alert-success"
+                         th:if="${mensagem}"
+                         th:text="${mensagem}">
+                    </div>
+
+
+                    <!-- FORMULÁRIO DE LOGIN -->
+                    <form th:action="@{/login}" method="post">
+
+                        <!-- Campo de e-mail -->
+                        <div class="mb-3">
+
+                            <label for="email" class="form-label">
+                                E-mail
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    <i class="bi bi-envelope"></i>
+                                </span>
+
+                                <input
+                                        type="email"
+                                        class="form-control"
+                                        id="email"
+                                        name="username"
+                                        placeholder="Digite seu e-mail"
+                                        autocomplete="username"
+                                        required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Campo de senha -->
+                        <div class="mb-3">
+
+                            <label for="senha" class="form-label">
+                                Senha
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    <i class="bi bi-lock"></i>
+                                </span>
+
+                                <input
+                                        type="password"
+                                        class="form-control"
+                                        id="senha"
+                                        name="password"
+                                        placeholder="Digite sua senha"
+                                        autocomplete="current-password"
+                                        required>
+
+                                <button
+                                        class="btn btn-outline-secondary"
+                                        type="button"
+                                        id="mostrarSenha"
+                                        aria-label="Mostrar senha">
+
+                                    <i class="bi bi-eye" id="iconeSenha"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Lembrar e recuperar senha -->
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+
+                            <div class="form-check">
+
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        id="lembrar"
+                                        name="lembrar-me">
+
+                                <label class="form-check-label" for="lembrar">
+                                    Lembrar de mim
+                                </label>
+
+                            </div>
+
+                            <a th:href="@{/recuperar-senha}"
+                               class="login-link">
+                                Esqueceu a senha?
+                            </a>
+
+                        </div>
+
+
+                        <!-- Botão entrar -->
+                        <button type="submit"
+                                class="btn btn-login-pagina w-100">
+
+                            Entrar na minha conta
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- Cadastro -->
+                    <div class="login-cadastro text-center">
+
+                        <p>
+                            Ainda não tem uma conta?
+                        </p>
+
+                        <a th:href="@{/cadastro}" class="login-link fw-bold">
+                            Criar minha conta
+                        </a>
+
+                    </div>
+
+
+                    <!-- Voltar para início -->
+                    <div class="text-center mt-3">
+
+                        <a th:href="@{/}" class="login-voltar">
+                            <i class="bi bi-arrow-left me-1"></i>
+                            Voltar para o início
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- RODAPÉ -->
+<footer class="rodape">
+
+    <div class="container text-center">
+
+        <h5>
+            <i class="bi bi-heart-pulse-fill me-2"></i>
+            OdontoCare
+        </h5>
+
+        <p>
+            Cuidando do seu sorriso com carinho e dedicação.
+        </p>
+
+        <p class="mb-0">
+            &copy; 2026 OdontoCare. Todos os direitos reservados.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Mostrar ou ocultar senha -->
+<script>
+    const botaoSenha = document.getElementById("mostrarSenha");
+    const campoSenha = document.getElementById("senha");
+    const iconeSenha = document.getElementById("iconeSenha");
+
+    botaoSenha.addEventListener("click", function () {
+
+        if (campoSenha.type === "password") {
+
+            campoSenha.type = "text";
+            iconeSenha.classList.remove("bi-eye");
+            iconeSenha.classList.add("bi-eye-slash");
+
+        } else {
+
+            campoSenha.type = "password";
+            iconeSenha.classList.remove("bi-eye-slash");
+            iconeSenha.classList.add("bi-eye");
+
+        }
+
+    });
+</script>
+
+</body>
+</html>

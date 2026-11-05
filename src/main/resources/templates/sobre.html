@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sobre Nós | OdontoCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<!-- MENU -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" th:href="@{/}">
+                OdontoCare
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/servicos}">
+                            Serviços
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/sobre}">
+                            Sobre nós
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-login" th:href="@{/login}">
+                            Entrar
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<!-- BANNER SOBRE -->
+<section class="sobre-banner">
+
+    <div class="container text-center">
+
+        <span class="subtitulo">CONHEÇA NOSSA CLÍNICA</span>
+
+        <h1>Sobre a OdontoCare</h1>
+
+        <p>
+            Mais do que cuidar de dentes, cuidamos de pessoas,
+            histórias e sorrisos.
+        </p>
+
+        <a th:href="@{/}" class="text-white">
+            Início
+        </a>
+
+        <span class="text-white"> / Sobre nós</span>
+
+    </div>
+
+</section>
+
+
+<!-- QUEM SOMOS -->
+<section class="sobre-conteudo py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <span class="subtitulo">QUEM SOMOS</span>
+
+                <h2>
+                    Cuidar do seu sorriso é a nossa especialidade!
+                </h2>
+
+                <p>
+                    A OdontoCare é uma clínica odontológica criada
+                    com o propósito de oferecer atendimento de qualidade,
+                    promovendo saúde bucal, autoestima e qualidade de vida.
+                </p>
+
+                <p>
+                    Acreditamos que um sorriso saudável vai muito além
+                    da estética. Ele representa bem-estar, confiança
+                    e qualidade de vida.
+                </p>
+
+                <p>
+                    Por isso, buscamos oferecer um ambiente acolhedor,
+                    atendimento humanizado e tratamentos adequados
+                    às necessidades de cada paciente.
+                </p>
+
+                <a th:href="@{/servicos}" class="btn btn-principal mt-3">
+                    Conheça nossos serviços
+                </a>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <img
+                        src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1000"
+                        alt="Interior de uma clínica odontológica"
+                        class="sobre-imagem">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NOSSA HISTÓRIA -->
+<section class="nossa-historia py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <img
+                        src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1000"
+                        alt="Profissional realizando atendimento odontológico"
+                        class="sobre-imagem">
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <span class="subtitulo">NOSSA HISTÓRIA</span>
+
+                <h2>Uma clínica dedicada à saúde e ao bem-estar</h2>
+
+                <p>
+                    A OdontoCare nasceu da ideia de tornar o atendimento
+                    odontológico mais acessível, confortável e humanizado.
+                </p>
+
+                <p>
+                    Nossa proposta é oferecer diferentes especialidades
+                    em um único ambiente, facilitando o acompanhamento
+                    e o cuidado contínuo com a saúde bucal.
+                </p>
+
+                <p>
+                    Trabalhamos para construir uma relação de confiança
+                    com nossos pacientes, valorizando cada atendimento
+                    e buscando sempre a excelência.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MISSÃO, VISÃO E VALORES -->
+<section class="mvv py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="subtitulo">NOSSA IDENTIDADE</span>
+
+            <h2>Missão, visão e valores</h2>
+
+            <p>
+                Os princípios que orientam nosso trabalho todos os dias.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="mvv-card">
+
+                    <div class="mvv-icone">🎯</div>
+
+                    <h3>Missão</h3>
+
+                    <p>
+                        Promover saúde bucal e qualidade de vida
+                        por meio de tratamentos odontológicos,
+                        atendimento humanizado e cuidado individualizado.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="mvv-card">
+
+                    <div class="mvv-icone">🔭</div>
+
+                    <h3>Visão</h3>
+
+                    <p>
+                        Ser reconhecida pela qualidade dos serviços,
+                        confiança dos pacientes e compromisso
+                        com a evolução da odontologia.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="mvv-card">
+
+                    <div class="mvv-icone">💙</div>
+
+                    <h3>Valores</h3>
+
+                    <p>
+                        Ética, respeito, responsabilidade,
+                        comprometimento, empatia e dedicação
+                        à saúde e ao bem-estar dos pacientes.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIFERENCIAIS -->
+<section class="sobre-diferenciais py-5">
+
+    <div class="container text-center">
+
+        <span class="subtitulo">NOSSO COMPROMISSO</span>
+
+        <h2>Por que escolher a OdontoCare?</h2>
+
+        <div class="row g-4 mt-4">
+
+            <div class="col-md-3">
+
+                <div class="diferencial">
+
+                    <h3>👩‍⚕️</h3>
+
+                    <h4>Equipe qualificada</h4>
+
+                    <p>
+                        Profissionais preparados para oferecer
+                        cuidado e orientação aos pacientes.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="diferencial">
+
+                    <h3>🦷</h3>
+
+                    <h4>Atendimento completo</h4>
+
+                    <p>
+                        Diferentes especialidades e tratamentos
+                        para cuidar da saúde bucal.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="diferencial">
+
+                    <h3>❤️</h3>
+
+                    <h4>Cuidado humanizado</h4>
+
+                    <p>
+                        Atenção às necessidades individuais
+                        e respeito a cada paciente.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="diferencial">
+
+                    <h3>📅</h3>
+
+                    <h4>Facilidade no atendimento</h4>
+
+                    <p>
+                        Solicitação de consultas e acompanhamento
+                        de agendamentos pela internet.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CHAMADA FINAL -->
+<section class="chamada py-5">
+
+    <div class="container text-center">
+
+        <h2>Estamos prontos para cuidar do seu sorriso!</h2>
+
+        <p>
+            Conheça nossos tratamentos e solicite seu atendimento.
+        </p>
+
+        <a th:href="@{/login}" class="btn btn-light btn-lg">
+            Agendar minha consulta
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- RODAPÉ -->
+<footer class="rodape">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-md-5">
+
+                <h3>OdontoCare</h3>
+
+                <p>
+                    Cuidando da sua saúde bucal com dedicação,
+                    qualidade e carinho.
+                </p>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <h5>Links rápidos</h5>
+
+                <a th:href="@{/}">Início</a>
+                <a th:href="@{/servicos}">Serviços</a>
+                <a th:href="@{/sobre}">Sobre nós</a>
+                <a th:href="@{/login}">Login</a>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <h5>Contato</h5>
+
+                <p>📍 Rua das Flores, 100</p>
+                <p>📞 (11) 99999-9999</p>
+                <p>✉ contato@odontocare.com.br</p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center mb-0">
+            © 2026 OdontoCare - Todos os direitos reservados.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
